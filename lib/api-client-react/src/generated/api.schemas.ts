@@ -8,3 +8,58 @@
 export interface HealthStatus {
   status: string;
 }
+
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  salePrice?: number | null;
+  categoryId: number;
+  categoryName: string;
+  images: string[];
+  sizes: string[];
+  featured: boolean;
+  isNew: boolean;
+  createdAt: string;
+}
+
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  image: string;
+  productCount: number;
+}
+
+export interface Testimonial {
+  id: number;
+  name: string;
+  comment: string;
+  rating: number;
+  avatar: string;
+}
+
+export type ProductsSummaryCategoryCountsItem = {
+  categoryName: string;
+  count: number;
+};
+
+export interface ProductsSummary {
+  totalProducts: number;
+  totalCategories: number;
+  onSaleCount: number;
+  categoryCounts: ProductsSummaryCategoryCountsItem[];
+}
+
+export type ListProductsParams = {
+  categoryId?: number;
+  featured?: boolean;
+  minPrice?: number;
+  maxPrice?: number;
+  size?: string;
+};
+
+export type ListNewArrivalsParams = {
+  limit?: number;
+};

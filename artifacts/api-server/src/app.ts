@@ -31,4 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
+import path from "path";
+import { fileURLToPath } from "url";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use("/api/images", express.static(path.resolve(__dirname, "..", "..", "..", "attached_assets")));
+
 export default app;

@@ -6,4 +6,11 @@
  * OpenAPI spec version: 0.1.0
  */
 
+export * from "./category";
 export * from "./healthStatus";
+export * from "./listNewArrivalsParams";
+export * from "./listProductsParams";
+export * from "./product";
+export * from "./productsSummary";
+export * from "./productsSummaryCategoryCountsItem";
+export * from "./testimonial";

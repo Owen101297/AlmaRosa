@@ -1,0 +1,292 @@
+ PROMPT ADAPTADO A TU MARCA
+CREAR TIENDA ONLINE PARA MARCA DE LENCERÍA "KAREN GUERRERO" (O MARCA PERSONAL SIMILAR)
+
+CONTEXTO
+Este sitio es una tienda online de ropa íntima femenina (lencería, conjuntos, pijamas y prendas sensuales).
+La marca está basada en redes sociales (principalmente Instagram).
+El objetivo es convertir seguidores en compradores mediante una experiencia visual atractiva y profesional.
+
+El estilo debe transmitir:
+👉 sensualidad + elegancia + confianza + exclusividad accesible
+
+SECCIÓN 1: DISEÑO GENERAL
+Estilo visual
+Estética lujo moderno
+
+Inspirado en marcas premium pero accesible
+
+Fondos claros con contrastes en negro
+
+Mucho espacio en blanco
+
+Imágenes tipo Instagram (modelo + lifestyle)
+
+PALETA DE COLORES (ADAPTADA)
+Color primario: Negro profundo (#0B0B0B)
+
+Color secundario: Blanco (#FFFFFF)
+
+Color acento: Rosa elegante (#E8A0BF)
+
+Color lujo: Dorado suave (#C9A96E)
+
+👉 Uso:
+
+Negro: fondos y header
+
+Blanco: textos principales
+
+Rosa: botones y detalles femeninos
+
+Dorado: acentos premium (hover, líneas, detalles)
+
+TIPOGRAFÍA
+Títulos: Playfair Display (lujo, femenino)
+
+Texto: Poppins (moderno y limpio)
+
+SECCIÓN 2: HEADER / NAVEGACIÓN
+Fondo negro elegante
+
+Logo: “Karen Guerrero” en tipografía serif (lujo)
+
+Menú:
+
+Inicio
+
+Tienda
+
+Colecciones
+
+Ofertas
+
+Contacto
+
+Iconos:
+
+Carrito
+
+Perfil
+
+Efecto:
+
+Sticky + fondo con blur al hacer scroll
+
+SECCIÓN 3: HERO (PORTADA)
+Diseño:
+Imagen grande tipo editorial (modelo con lencería)
+
+Overlay oscuro suave
+
+Texto:
+"Siéntete poderosa, sexy y segura"
+
+Subtexto:
+"Descubre la lencería que realza tu esencia"
+
+Botón:
+👉 "Comprar ahora"
+
+Efectos:
+Fade-in suave
+
+Zoom leve en imagen (parallax ligero)
+
+SECCIÓN 4: CATEGORÍAS
+Grid elegante (cards grandes):
+
+Conjuntos
+
+Brasieres
+
+Pijamas
+
+Bodys
+
+Ropa deportiva
+
+Diseño:
+Imágenes reales tipo Instagram
+
+Hover:
+
+Zoom + overlay oscuro + texto en blanco
+
+SECCIÓN 5: PRODUCTOS DESTACADOS
+Cards tipo premium:
+
+Imagen grande
+
+Nombre del producto
+
+Precio
+
+Botón:
+👉 "Agregar al carrito"
+
+Hover:
+Elevación (shadow)
+
+Cambio de imagen
+
+Botón aparece con fade
+
+SECCIÓN 6: SECCIÓN "EXPERIENCIA"
+3 bloques:
+
+✨ Calidad premium
+
+💖 Diseños exclusivos
+
+🚚 Envíos rápidos
+
+Diseño con iconos minimalistas + texto corto
+
+SECCIÓN 7: TESTIMONIOS (ESTILO INSTAGRAM)
+Fotos reales de clientas
+
+Comentarios tipo:
+"Me encantó 😍 súper cómodo y sexy"
+
+Estrellas ⭐⭐⭐⭐⭐
+
+SECCIÓN 8: INSTAGRAM FEED
+Grid con fotos reales de la marca
+
+Hover:
+
+Icono de Instagram
+
+Botón:
+👉 "Ver más en Instagram"
+
+SECCIÓN 9: FOOTER
+Fondo negro:
+
+Logo
+
+Links:
+
+Políticas
+
+Cambios y devoluciones
+
+Contacto
+
+Redes:
+
+Instagram
+
+WhatsApp
+
+SECCIÓN 10: FUNCIONALIDAD DE TIENDA
+Carrito lateral (slide)
+
+Filtros:
+
+Talla
+
+Precio
+
+Tipo
+
+Página de producto:
+
+Galería tipo slider
+
+Zoom en imagen
+
+Selector de talla
+
+Botón grande "Comprar"
+
+SECCIÓN 11: ANIMACIONES
+Fade-in en todas las secciones
+
+Hover en botones (escala + cambio a dorado)
+
+Scroll suave
+
+Microinteracciones elegantes
+
+SECCIÓN 12: UX (CLAVE PARA VENDER)
+Botón flotante de WhatsApp (MUY IMPORTANTE)
+
+Mensaje automático:
+👉 "Hola, quiero comprar este producto"
+
+Checkout simple:
+
+Nombre
+
+Dirección
+
+Método de pago
+
+SECCIÓN 13: MOBILE
+Diseño mobile-first
+
+Menú hamburguesa elegante
+
+Botones grandes
+
+Imágenes optimizadas
+
+SECCIÓN 14: OPTIMIZACIÓN
+Imágenes comprimidas
+
+Carga rápida
+
+SEO básico
+
+SECCIÓN 15: ELEMENTOS ESPECÍFICOS
+Botón de WhatsApp
+Ubicación: esquina inferior derecha
+
+Debe ser:
+
+Verde suave o negro con borde blanco
+
+Animación pulse ligera
+
+Tarjetas de producto
+Actualmente: básicas tipo tienda genérica
+Debe ser: estilo premium tipo Instagram
+
+Especificaciones:
+
+Bordes redondeados
+
+Sombra suave
+
+Hover elegante
+
+INSTRUCCIONES DE IMPLEMENTACIÓN
+🔴 Prioridad Alta:
+Hero atractivo
+
+Productos + carrito
+
+Botón de WhatsApp
+
+Mobile perfecto
+
+🟡 Prioridad Media:
+Testimonios
+
+Instagram feed
+
+Animaciones
+
+🟢 Prioridad Baja:
+Efectos avanzados
+
+NOTAS IMPORTANTES
+Mantener estilo sensual pero elegante (NO vulgar)
+
+Usar imágenes reales (tipo Instagram)
+
+Dar sensación de marca personal premium
+
+Optimizar para conversión (ventas rápidas)
+

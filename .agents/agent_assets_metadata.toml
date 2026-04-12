@@ -1,0 +1,68 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "MIhPDrXNdcfMAiAS58NwZ"
+uri = "file://attached_assets/generated_images/generated_image_0.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "gQPG1HXxPxAA9-V22Fncp"
+uri = "file://attached_assets/generated_images/generated_image_1.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "q3FakJ_lzW-bfYf0uSv28"
+uri = "file://attached_assets/generated_images/generated_image_2.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "bdid7J6HludsvtlKq17ed"
+uri = "file://attached_assets/generated_images/generated_image_3.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "fEvERjTLVLdL06X80ElB0"
+uri = "file://attached_assets/generated_images/generated_image_4.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "8JgZVBd_Z7-girfLIgLzt"
+uri = "file://artifacts/karen-guerrero/public/images/hero.png"
+type = "image"
+title = "Hero dark lingerie"
+
+[[generated]]
+id = "0METWse9FIjPc_-zjzfCi"
+uri = "file://artifacts/karen-guerrero/public/images/category-sets.png"
+type = "image"
+title = "Lingerie set silk"
+
+[[generated]]
+id = "emlWKQRvIocvJMoJ0YGK2"
+uri = "file://artifacts/karen-guerrero/public/images/category-bras.png"
+type = "image"
+title = "Luxury bra lace"
+
+[[generated]]
+id = "a2NQrvvWm8P3uZRF1KSNn"
+uri = "file://artifacts/karen-guerrero/public/images/category-pajamas.png"
+type = "image"
+title = "Satin sleepwear"
+
+[[generated]]
+id = "shJt7qetjkfIBmjOrxKlR"
+uri = "file://artifacts/karen-guerrero/public/images/category-bodysuits.png"
+type = "image"
+title = "Black bodysuit"
+
+[[generated]]
+id = "NhDak35o21Cq1umkaFMHZ"
+uri = "file://artifacts/karen-guerrero/public/images/category-activewear.png"
+type = "image"
+title = "Black activewear"

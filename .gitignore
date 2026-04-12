@@ -37,9 +37,22 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
-.DS_Store
-Thumbs.db
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+artifacts/*/dist
+artifacts/*/.env
+
+# Logs
+*.log
+pnpm-debug.log*
+
+# Cache
+.vite/
+.cache/
 
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md

@@ -38,7 +38,7 @@ export default function Sales() {
               </div>
             ))}
           </div>
-        ) : onSaleProducts?.length === 0 ? (
+        ) : !Array.isArray(onSaleProducts) || onSaleProducts.length === 0 ? (
           <div className="text-center py-24 bg-card rounded-lg border border-border">
             <h3 className="font-serif text-2xl mb-2">No hay ofertas en este momento</h3>
             <p className="text-muted-foreground mb-6">Nuestras ofertas cambian constantemente. ¡Vuelve pronto!</p>
@@ -48,7 +48,7 @@ export default function Sales() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {onSaleProducts?.map(product => (
+            {Array.isArray(onSaleProducts) && onSaleProducts.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

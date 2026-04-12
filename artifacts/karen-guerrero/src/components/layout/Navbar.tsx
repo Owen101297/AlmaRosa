@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { ShoppingBag, Menu, X, User, Package, LogOut } from "lucide-react";
 import { useCart } from "../cart/CartProvider";
+import { useAuth } from "../../hooks/useAuth";
 import { CartSheet } from "./CartSheet";
 import { Button } from "../ui/button";
 
@@ -10,6 +11,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
   const { totalItems, setIsCartOpen } = useCart();
+  const { user, isLoading, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +33,10 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-border/50 shadow-sm"
-            : "bg-transparent"
+            ? "bg-white/90 backdrop-blur-md border-border/50 shadow-sm"
+            : "bg-transparent border-transparent"
         }`}
       >
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
@@ -43,7 +45,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="text-foreground hover:bg-transparent hover:text-primary"
+                className="text-foreground hover:bg-transparent hover:text-primary transition-colors"
             >
               <Menu className="w-6 h-6" />
             </Button>
@@ -55,7 +57,9 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-primary ${
-                  location === link.href ? "text-primary" : "text-muted-foreground"
+                  location === link.href
+                    ? "text-primary"
+                    : "text-muted-foreground"
                 }`}
               >
                 {link.label}
@@ -64,12 +68,54 @@ export function Navbar() {
           </nav>
 
           <div className="flex-1 flex justify-center">
-            <Link href="/" className="font-serif text-2xl md:text-3xl font-bold tracking-wider text-primary">
-              KAREN GUERRERO
+            <Link
+              href="/"
+              className="flex items-center"
+            >
+              <img 
+                src="/images/logo.png" 
+                alt="Alma Rosa" 
+                className="h-16 w-auto md:h-20 transition-all duration-300 mix-blend-multiply" 
+              />
             </Link>
           </div>
 
-          <div className="flex-1 flex justify-end items-center gap-4">
+          <div className="flex-1 flex justify-end items-center gap-2">
+            {!isLoading &&
+              (user ? (
+                <>
+                  <Link href="/pedidos">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                        className="text-foreground hover:bg-transparent hover:text-primary transition-colors"
+                    >
+                      <Package className="w-4 h-4 mr-1" />
+                      <span className="hidden sm:inline">Mis pedidos</span>
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                      className="text-foreground hover:bg-transparent hover:text-primary transition-colors"
+                    onClick={() => signOut()}
+                    title="Cerrar sesión"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </Button>
+                </>
+              ) : (
+                <Link href="/login">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                      className="text-foreground hover:bg-transparent hover:text-primary transition-colors"
+                  >
+                    <User className="w-4 h-4 mr-1" />
+                    <span className="hidden sm:inline">Iniciar sesión</span>
+                  </Button>
+                </Link>
+              ))}
             <Button
               variant="ghost"
               size="icon"
@@ -101,7 +147,7 @@ export function Navbar() {
                 <X className="w-6 h-6" />
               </Button>
             </div>
-            
+
             <div className="flex flex-col items-center justify-center flex-1 gap-8">
               {navLinks.map((link) => (
                 <Link
@@ -109,14 +155,16 @@ export function Navbar() {
                   href={link.href}
                   onClick={closeMenu}
                   className={`text-2xl font-serif tracking-wider ${
-                    location === link.href ? "text-primary" : "text-foreground hover:text-primary"
+                    location === link.href
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
-            
+
             <div className="py-8 text-center text-sm text-muted-foreground">
               Sensualidad, Elegancia, Confianza.
             </div>

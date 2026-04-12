@@ -29,7 +29,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
-    const savedCart = localStorage.getItem("karen_guerrero_cart");
+    const savedCart = localStorage.getItem("alma_rosa_cart");
     if (savedCart) {
       try {
         setItems(JSON.parse(savedCart));
@@ -40,7 +40,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("karen_guerrero_cart", JSON.stringify(items));
+    localStorage.setItem("alma_rosa_cart", JSON.stringify(items));
   }, [items]);
 
   const addItem = (newItem: Omit<CartItem, "id">) => {

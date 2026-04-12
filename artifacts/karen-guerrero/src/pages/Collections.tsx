@@ -35,7 +35,7 @@ export default function Collections() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {categories?.map((category, idx) => (
+            {Array.isArray(categories) && categories.map((category, idx) => (
               <Link 
                 key={category.id} 
                 href={`/tienda?category=${category.id}`} 

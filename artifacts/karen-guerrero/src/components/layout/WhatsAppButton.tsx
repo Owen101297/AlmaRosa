@@ -1,7 +1,7 @@
 import { SiWhatsapp } from "react-icons/si";
 
 export function WhatsAppButton() {
-  const defaultMessage = "Hola, me interesa conocer más sobre los productos de Karen Guerrero.";
+  const defaultMessage = "Hola, me interesa conocer más sobre los productos de Alma Rosa.";
   const encodedMessage = encodeURIComponent(defaultMessage);
   const whatsappUrl = `https://wa.me/1234567890?text=${encodedMessage}`;
 

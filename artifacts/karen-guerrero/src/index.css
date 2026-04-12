@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -68,153 +68,180 @@
 }
 
 /* LIGHT MODE */
+/* REFINED LUXURY THEME - ELEGANT & MINIMALIST */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0, 0, 0, 0.04);
+  --badge-outline: rgba(0, 0, 0, 0.02);
 
-  --opaque-button-border-intensity: -8;
+  --opaque-button-border-intensity: -6;
 
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0, 0, 0, 0.015);
+  --elevate-2: rgba(0, 0, 0, 0.04);
 
-  --background: 0 0% 4%;
-  --foreground: 0 0% 96%;
+  --background: 24 30% 99%; /* Even cleaner background */
+  --foreground: 20 8% 12%; /* Slightly softer text for elegance */
 
-  --border: 0 0% 15%;
+  --border: 20 12% 92%; /* Softer borders */
 
-  --card: 0 0% 6%;
-  --card-foreground: 0 0% 96%;
-  --card-border: 0 0% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 8% 12%;
+  --card-border: 20 12% 96%;
 
-  --sidebar: 0 0% 6%;
-  --sidebar-foreground: 0 0% 96%;
-  --sidebar-border: 0 0% 15%;
-  --sidebar-primary: 350 36% 57%;
+  --sidebar: 24 30% 99%;
+  --sidebar-foreground: 20 8% 12%;
+  --sidebar-border: 20 12% 92%;
+  --sidebar-primary: 20 30% 25%; /* Deep burgundy/wine color for luxury feel */
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 12%;
-  --sidebar-accent-foreground: 0 0% 96%;
-  --sidebar-ring: 350 36% 57%;
+  --sidebar-accent: 20 12% 96%;
+  --sidebar-accent-foreground: 20 8% 12%;
+  --sidebar-ring: 20 30% 25%;
 
-  --popover: 0 0% 6%;
-  --popover-foreground: 0 0% 96%;
-  --popover-border: 0 0% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 8% 12%;
+  --popover-border: 20 12% 90%;
 
-  --primary: 350 36% 57%;
-  --primary-foreground: 0 0% 10%;
+  --primary: 20 30% 25%; /* Deep burgundy/wine - more luxurious than blue */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 96%;
+  --secondary: 20 12% 96%;
+  --secondary-foreground: 20 8% 12%;
 
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 64%;
+  --muted: 20 12% 96%;
+  --muted-foreground: 20 8% 45%;
 
-  --accent: 0 0% 12%;
-  --accent-foreground: 0 0% 96%;
+  --accent: 25 20% 95%; /* Soft warm accent */
+  --accent-foreground: 25 12% 20%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 96%;
+  --destructive: 0 70% 55%; /* Softer destructive color */
+  --destructive-foreground: 0 0% 100%;
 
-  --input: 0 0% 15%;
-  --ring: 350 36% 57%;
-  --chart-1: 350 36% 57%;
-  --chart-2: 0 0% 80%;
-  --chart-3: 0 0% 60%;
-  --chart-4: 0 0% 40%;
-  --chart-5: 0 0% 20%;
+  --input: 20 12% 90%;
+  --ring: 20 30% 25%; /* Match primary for rings */
+  --chart-1: 20 30% 25%;
+  --chart-2: 24 15% 85%;
+  --chart-3: 12 25% 55%;
+  --chart-4: 35 20% 40%;
+  --chart-5: 20 30% 25%;
 
-  --app-font-sans: 'Poppins', sans-serif;
-  --app-font-serif: 'Playfair Display', serif;
+  --app-font-sans: "Poppins", sans-serif;
+  --app-font-serif: "Playfair Display", serif;
   --app-font-mono: Menlo, monospace;
-  --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
-  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
-  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
-  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
-  --tracking-normal: 0em;
+  --radius: 0rem; /* Modern sharp edges for luxury feel */
+  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.02);
+  --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.03);
+  --shadow-sm: 0px 2px 4px 0px hsl(0 0% 0% / 0.04);
+  --shadow: 0px 4px 8px 0px hsl(0 0% 0% / 0.05);
+  --shadow-md: 0px 8px 16px -4px hsl(0 0% 0% / 0.08);
+  --shadow-lg: 0px 12px 24px -8px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0px 20px 32px -12px hsl(0 0% 0% / 0.12);
+  --shadow-2xl: 0px 32px 48px -12px hsl(0 0% 0% / 0.15);
+  --tracking-normal: 0.025em;
   --spacing: 0.25rem;
 
   --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: hsl(
+    from hsl(var(--sidebar-primary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
   --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(
+    from hsl(var(--sidebar-accent)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
   --primary-border: hsl(var(--primary));
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(
+    from hsl(var(--primary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
   --secondary-border: hsl(var(--secondary));
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(
+    from hsl(var(--secondary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
   --muted-border: hsl(var(--muted));
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(
+    from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) /
+      alpha
+  );
   --accent-border: hsl(var(--accent));
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(
+    from hsl(var(--accent)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
   --destructive-border: hsl(var(--destructive));
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(
+    from hsl(var(--destructive)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255, 255, 255, 0.08);
+  --badge-outline: rgba(255, 255, 255, 0.04);
 
-  --opaque-button-border-intensity: 9;
+  --opaque-button-border-intensity: 7;
 
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255, 255, 255, 0.03);
+  --elevate-2: rgba(255, 255, 255, 0.07);
 
-  --background: 0 0% 4%;
-  --foreground: 0 0% 96%;
+  --background: 0 0% 6%; /* Slightly lighter for better contrast */
+  --foreground: 0 0% 93%; /* Slightly softer white */
 
-  --border: 0 0% 15%;
+  --border: 0 0% 18%; /* Softer borders in dark mode */
 
-  --card: 0 0% 6%;
-  --card-foreground: 0 0% 96%;
-  --card-border: 0 0% 12%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 93%;
+  --card-border: 0 0% 15%;
 
   --sidebar: 0 0% 6%;
-  --sidebar-foreground: 0 0% 96%;
-  --sidebar-border: 0 0% 15%;
-  --sidebar-primary: 350 36% 57%;
+  --sidebar-foreground: 0 0% 93%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-primary: 20 30% 25%; /* Deep burgundy/wine - consistent with light mode */
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 12%;
-  --sidebar-accent-foreground: 0 0% 96%;
-  --sidebar-ring: 350 36% 57%;
+  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent-foreground: 0 0% 93%;
+  --sidebar-ring: 20 30% 25%;
 
-  --popover: 0 0% 6%;
-  --popover-foreground: 0 0% 96%;
-  --popover-border: 0 0% 15%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 93%;
+  --popover-border: 0 0% 18%;
 
-  --primary: 350 36% 57%;
-  --primary-foreground: 0 0% 10%;
+  --primary: 20 30% 25%; /* Deep burgundy/wine */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 96%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 93%;
 
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 64%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
 
-  --accent: 0 0% 12%;
-  --accent-foreground: 0 0% 96%;
+  --accent: 25 18% 92%; /* Soft warm accent */
+  --accent-foreground: 25 10% 25%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 96%;
+  --destructive: 0 70% 50%; /* Softer destructive color */
+  --destructive-foreground: 0 0% 93%;
 
-  --input: 0 0% 15%;
-  --ring: 350 36% 57%;
-  --chart-1: 350 36% 57%;
-  --chart-2: 0 0% 80%;
-  --chart-3: 0 0% 60%;
-  --chart-4: 0 0% 40%;
-  --chart-5: 0 0% 20%;
+  --input: 0 0% 18%;
+  --ring: 20 30% 25%; /* Match primary for rings */
+  --chart-1: 20 30% 25%;
+  --chart-2: 0 0% 82%;
+  --chart-3: 0 0% 58%;
+  --chart-4: 0 0% 38%;
+  --chart-5: 20 30% 25%;
 
-  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.50);
-  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.50);
-  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.50), 0px 1px 2px -1px hsl(0 0% 0% / 0.50);
-  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.50), 0px 1px 2px -1px hsl(0 0% 0% / 0.50);
-  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.50), 0px 2px 4px -1px hsl(0 0% 0% / 0.50);
-  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.50), 0px 4px 6px -1px hsl(0 0% 0% / 0.50);
-  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.50), 0px 8px 10px -1px hsl(0 0% 0% / 0.50);
-  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.50);
+  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.4);
+  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.4);
+  --shadow-sm:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.35), 0px 1px 2px -1px hsl(0 0% 0% / 0.35);
+  --shadow:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.3), 0px 1px 2px -1px hsl(0 0% 0% / 0.3);
+  --shadow-md:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.25), 0px 2px 4px -1px hsl(0 0% 0% / 0.25);
+  --shadow-lg:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.2), 0px 4px 6px -1px hsl(0 0% 0% / 0.2);
+  --shadow-xl:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.15);
 }
 
 @layer base {
@@ -248,7 +275,6 @@
  * need to be distinguished from eachother visually.
  */
 @layer utilities {
-
   /* Hide ugly search cancel button in Chrome until we can style it properly */
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;
@@ -264,10 +290,11 @@
   /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
    * buttons/badges can remove the automatic brightness adjustment on interactions
    * and program their own. */
-  .no-default-hover-elevate {}
+  .no-default-hover-elevate {
+  }
 
-  .no-default-active-elevate {}
-
+  .no-default-active-elevate {
+  }
 
   /**
    * Toggleable backgrounds go behind the content. Hoverable/active goes on top.

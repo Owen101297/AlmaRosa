@@ -4,18 +4,36 @@ import { Layout } from "../components/layout/Layout";
 import { useGetProduct, useListProducts } from "@workspace/api-client-react";
 import { Button } from "../components/ui/button";
 import { useCart } from "../components/cart/CartProvider";
-import { Minus, Plus, ShoppingBag, Truck, ArrowLeft, Star } from "lucide-react";
+import {
+  Minus,
+  Plus,
+  ShoppingBag,
+  Truck,
+  ArrowLeft,
+  Star,
+  Ruler,
+  X,
+} from "lucide-react";
 import { ProductCard } from "../components/ui/ProductCard";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "../components/ui/dialog";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const { data: product, isLoading } = useGetProduct(Number(id));
-  const { data: relatedProducts } = useListProducts({ categoryId: product?.categoryId });
-  
+  const { data: relatedProducts } = useListProducts({
+    categoryId: product?.categoryId,
+  });
+
   const { addItem } = useCart();
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [quantity, setQuantity] = useState(1);
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,7 +57,7 @@ export default function ProductDetail() {
     );
   }
 
-  if (!product) {
+  if (!product || typeof product !== "object" || !("id" in product)) {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-32 text-center">
@@ -67,7 +85,6 @@ export default function ProductDetail() {
     <Layout>
       <div className="container mx-auto px-4 py-24">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-24">
-          
           {/* Images */}
           <div className="w-full lg:w-1/2 flex flex-col-reverse md:flex-row gap-4">
             {/* Thumbnails */}
@@ -76,13 +93,17 @@ export default function ProductDetail() {
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(img)}
-                  className={`w-20 h-24 md:w-24 md:h-32 flex-shrink-0 rounded-md overflow-hidden border-2 transition-colors ${selectedImage === img ? 'border-primary' : 'border-transparent opacity-70 hover:opacity-100'}`}
+                  className={`w-20 h-24 md:w-24 md:h-32 flex-shrink-0 rounded-md overflow-hidden border-2 transition-colors ${selectedImage === img ? "border-primary" : "border-transparent opacity-70 hover:opacity-100"}`}
                 >
-                  <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img
+                    src={img}
+                    alt={`${product.name} ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </button>
               ))}
             </div>
-            
+
             {/* Main Image */}
             <div className="flex-1 bg-muted rounded-md overflow-hidden aspect-[3/4] relative group">
               {product.isNew && (
@@ -95,9 +116,9 @@ export default function ProductDetail() {
                   Oferta
                 </div>
               )}
-              <img 
-                src={selectedImage} 
-                alt={product.name} 
+              <img
+                src={selectedImage}
+                alt={product.name}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -108,17 +129,25 @@ export default function ProductDetail() {
             <div className="text-primary text-sm tracking-wider uppercase mb-2">
               {product.categoryName}
             </div>
-            <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-4">{product.name}</h1>
-            
+            <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+              {product.name}
+            </h1>
+
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center gap-3">
                 {product.salePrice ? (
                   <>
-                    <span className="text-2xl text-destructive font-medium">${product.salePrice.toFixed(2)}</span>
-                    <span className="text-lg text-muted-foreground line-through">${product.price.toFixed(2)}</span>
+                    <span className="text-2xl text-destructive font-medium">
+                      ${product.salePrice.toFixed(2)}
+                    </span>
+                    <span className="text-lg text-muted-foreground line-through">
+                      ${product.price.toFixed(2)}
+                    </span>
                   </>
                 ) : (
-                  <span className="text-2xl text-foreground font-medium">${product.price.toFixed(2)}</span>
+                  <span className="text-2xl text-foreground font-medium">
+                    ${product.price.toFixed(2)}
+                  </span>
                 )}
               </div>
               <div className="h-6 w-[1px] bg-border"></div>
@@ -140,15 +169,22 @@ export default function ProductDetail() {
               {product.sizes?.length > 0 && (
                 <div>
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-sm font-medium uppercase tracking-wider">Talla seleccionada: {selectedSize}</span>
-                    <button className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground">Guía de tallas</button>
+                    <span className="text-sm font-medium uppercase tracking-wider">
+                      Talla seleccionada: {selectedSize}
+                    </span>
+                    <button
+                      className="text-xs text-primary underline underline-offset-4 hover:text-primary/80 flex items-center gap-1"
+                      onClick={() => setIsSizeGuideOpen(true)}
+                    >
+                      <Ruler className="w-3 h-3" /> Guía de tallas
+                    </button>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {product.sizes.map((size) => (
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`w-12 h-12 text-sm font-medium border transition-colors ${selectedSize === size ? 'bg-primary text-primary-foreground border-primary' : 'bg-transparent text-foreground border-border hover:border-primary'}`}
+                        className={`w-12 h-12 text-sm font-medium border transition-colors ${selectedSize === size ? "bg-primary text-primary-foreground border-primary" : "bg-transparent text-foreground border-border hover:border-primary"}`}
                       >
                         {size}
                       </button>
@@ -158,16 +194,20 @@ export default function ProductDetail() {
               )}
 
               <div>
-                <span className="text-sm font-medium uppercase tracking-wider block mb-3">Cantidad</span>
+                <span className="text-sm font-medium uppercase tracking-wider block mb-3">
+                  Cantidad
+                </span>
                 <div className="flex items-center border border-border w-max rounded-md">
-                  <button 
+                  <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="w-12 h-12 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Minus className="w-4 h-4" />
                   </button>
-                  <span className="w-12 text-center font-medium">{quantity}</span>
-                  <button 
+                  <span className="w-12 text-center font-medium">
+                    {quantity}
+                  </span>
+                  <button
                     onClick={() => setQuantity(quantity + 1)}
                     className="w-12 h-12 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                   >
@@ -178,8 +218,8 @@ export default function ProductDetail() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="w-full h-14 text-sm tracking-widest uppercase bg-primary hover:bg-primary/90 text-primary-foreground border-none"
                 onClick={handleAddToCart}
               >
@@ -192,7 +232,10 @@ export default function ProductDetail() {
                 <Truck className="w-5 h-5 text-muted-foreground mt-0.5" />
                 <div>
                   <h4 className="text-sm font-medium">Envíos a todo el país</h4>
-                  <p className="text-xs text-muted-foreground mt-1">El costo de envío se calculará al finalizar la compra por WhatsApp.</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    El costo de envío se calculará al finalizar la compra por
+                    WhatsApp.
+                  </p>
                 </div>
               </div>
             </div>
@@ -200,16 +243,102 @@ export default function ProductDetail() {
         </div>
 
         {/* Related Products */}
-        {relatedProducts && relatedProducts.filter(p => p.id !== product.id).length > 0 && (
-          <div className="pt-16 border-t border-border">
-            <h2 className="font-serif text-3xl mb-8 text-center">También te podría gustar</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.filter(p => p.id !== product.id).slice(0, 4).map(related => (
-                <ProductCard key={related.id} product={related} />
-              ))}
+        {Array.isArray(relatedProducts) &&
+          relatedProducts.filter((p) => p.id !== product.id).length > 0 && (
+            <div className="pt-16 border-t border-border">
+              <h2 className="font-serif text-3xl mb-8 text-center">
+                También te podría gustar
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {relatedProducts
+                  .filter((p) => p.id !== product.id)
+                  .slice(0, 4)
+                  .map((related) => (
+                    <ProductCard key={related.id} product={related} />
+                  ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
+        {/* Size Guide Dialog */}
+        <Dialog open={isSizeGuideOpen} onOpenChange={setIsSizeGuideOpen}>
+          <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle className="font-serif text-2xl text-center">
+                Guía de Tallas
+              </DialogTitle>
+            </DialogHeader>
+            <div className="space-y-6 py-4">
+              <p className="text-sm text-muted-foreground text-center">
+                Mide tu contorno de pecho y cadera para encontrar tu talla
+                ideal.
+              </p>
+
+              <div className="border rounded-lg overflow-hidden">
+                <table className="w-full text-sm">
+                  <thead className="bg-muted">
+                    <tr>
+                      <th className="p-3 text-left font-medium">Talla</th>
+                      <th className="p-3 text-center font-medium">Copa</th>
+                      <th className="p-3 text-center font-medium">
+                        Contorno Pecho
+                      </th>
+                      <th className="p-3 text-center font-medium">
+                        Contorno Cadera
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-t">
+                      <td className="p-3 font-medium">XS</td>
+                      <td className="p-3 text-center">A - B</td>
+                      <td className="p-3 text-center">80-85 cm</td>
+                      <td className="p-3 text-center">85-90 cm</td>
+                    </tr>
+                    <tr className="border-t bg-muted/50">
+                      <td className="p-3 font-medium">S</td>
+                      <td className="p-3 text-center">B - C</td>
+                      <td className="p-3 text-center">85-90 cm</td>
+                      <td className="p-3 text-center">90-95 cm</td>
+                    </tr>
+                    <tr className="border-t">
+                      <td className="p-3 font-medium">M</td>
+                      <td className="p-3 text-center">C - D</td>
+                      <td className="p-3 text-center">90-95 cm</td>
+                      <td className="p-3 text-center">95-100 cm</td>
+                    </tr>
+                    <tr className="border-t bg-muted/50">
+                      <td className="p-3 font-medium">L</td>
+                      <td className="p-3 text-center">D - DD</td>
+                      <td className="p-3 text-center">95-100 cm</td>
+                      <td className="p-3 text-center">100-105 cm</td>
+                    </tr>
+                    <tr className="border-t">
+                      <td className="p-3 font-medium">XL</td>
+                      <td className="p-3 text-center">DD - E</td>
+                      <td className="p-3 text-center">100-105 cm</td>
+                      <td className="p-3 text-center">105-110 cm</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="bg-muted/30 p-4 rounded-lg">
+                <h4 className="font-medium mb-2">
+                  Consejos para una elección perfecta:
+                </h4>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Mide sin sostén para mayor precisión</li>
+                  <li>• Usa una cinta métrica ajustada pero no apretada</li>
+                  <li>• Si estás entre tallas, elige la más grande</li>
+                  <li>
+                    • Contáctanos por WhatsApp para asesoría personalizada
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </Layout>
   );

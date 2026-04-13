@@ -37,10 +37,39 @@ yarn-error.log
 testem.log
 /typings
 
-# Environment files
-.env
-.env.local
-.env.*.local
+# =============================================================================
+# ALMA ROSA - CONFIGURACIÓN DE VARIABLES DE ENTORNO
+# =============================================================================
+# Copia este archivo a .env y completa los valores para tu entorno de producción
+
+# =============================================================================
+# SUPABASE (Base de datos y Auth)
+# =============================================================================
+# URL de tu proyecto Supabase (la misma para frontend y backend)
+VITE_SUPABASE_URL=https://pgrnovxaafrhhknsggyy.supabase.co
+SUPABASE_URL=https://pgrnovxaafrhhknsggyy.supabase.co
+
+# Clave anónima (anon key) - se usa en el frontend
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBncm5vdnhhYWZyaGhrbnNnZ3l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5NjAwODQsImV4cCI6MjA5MTUzNjA4NH0.RjlVKXud7A8dnzqiooMoY-5FW4b5-0k2tlG7aKJptJU
+SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBncm5vdnhhYWZyaGhrbnNnZ3l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5NjAwODQsImV4cCI6MjA5MTUzNjA4NH0.RjlVKXud7A8dnzqiooMoY-5FW4b5-0k2tlG7aKJptJU
+
+# =============================================================================
+# BASE DE DATOS (Connection Pooler - Puerto 6543, no 5432)
+# =============================================================================
+# Formato: postgresql://[user]:[password]@[host]:[port]/postgres
+DATABASE_URL=postgresql://postgres.pgrnovxaafrhhknsggyy:101297*OWen*@aws-1-us-east-2.pooler.supabase.com:6543/postgres
+
+# =============================================================================
+# SERVIDOR
+# =============================================================================
+PORT=5000
+NODE_ENV=production
+
+# =============================================================================
+# FRONTEND (solo necesario si el frontend necesita comunicarse con una API externa)
+# =============================================================================
+# URL del backend cuando se despliegue en producción
+VITE_API_URL=http://localhost:5000
 
 # Build outputs
 artifacts/*/dist

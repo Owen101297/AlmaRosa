@@ -4,13 +4,16 @@ WORKDIR /app
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-COPY package.json pnpm-lock.yaml ./
+COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
+COPY lib ./lib
+
 RUN pnpm install --frozen-lockfile
 
-COPY . .
-RUN pnpm run build
+COPY artifacts/api-server ./artifacts/api-server
+
+RUN cd artifacts/api-server && pnpm run build
 
 ENV NODE_ENV=production
 EXPOSE 5000
 
-CMD ["pnpm", "run", "start"]
+CMD ["node", "artifacts/api-server/dist/index.mjs"]

@@ -1,18 +1,45 @@
+FROM node:20-slim AS builder
+
+# Install pnpm
+RUN npm install -g pnpm@latest
+
+WORKDIR /app
+
+# Copy monorepo configuration
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
+
+# Copy all package.json files from all workspaces to allow pnpm to link correctly
+COPY artifacts/api-server/package.json ./artifacts/api-server/
+COPY artifacts/karen-guerrero/package.json ./artifacts/karen-guerrero/
+COPY lib/api-client-react/package.json ./lib/api-client-react/
+COPY lib/api-spec/package.json ./lib/api-spec/
+COPY lib/api-zod/package.json ./lib/api-zod/
+COPY lib/db/package.json ./lib/db/
+
+# Install all dependencies (dev + prod) for building
+RUN pnpm install --frozen-lockfile
+
+# Copy library source code
+COPY lib ./lib
+
+# Copy api-server source code
+COPY artifacts/api-server ./artifacts/api-server
+
+# Build the api-server
+RUN cd artifacts/api-server && pnpm run build
+
+# Final Stage: Production
 FROM node:20-slim
 
 WORKDIR /app
 
-RUN npm install -g pnpm@latest
-
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY lib ./lib
-
-RUN pnpm install
-
-COPY artifacts/api-server ./artifacts/api-server
-
-RUN cd artifacts/api-server && pnpm run build
+# Copy only the necessary build artifacts and node_modules
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/artifacts/api-server/dist ./artifacts/api-server/dist
+COPY --from=builder /app/artifacts/api-server/package.json ./artifacts/api-server/package.json
 
 EXPOSE 5000
+
+ENV NODE_ENV=production
 
 CMD ["node", "artifacts/api-server/dist/index.mjs"]

@@ -25,7 +25,6 @@ export function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/tienda", label: "Tienda" },
     { href: "/colecciones", label: "Colecciones" },
-    { href: "/ofertas", label: "Ofertas" },
   ];
 
   const closeMenu = () => setIsMobileMenuOpen(false);
@@ -36,7 +35,7 @@ export function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
           isScrolled
             ? "bg-white/90 backdrop-blur-md border-border/50 shadow-sm"
-            : "bg-transparent border-transparent"
+            : "bg-background border-border/20"
         }`}
       >
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">

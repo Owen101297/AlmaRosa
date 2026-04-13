@@ -61,38 +61,45 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[90dvh] w-full overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero.png"
-            alt="Alma Rosa Lingerie"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-white/15"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
-        </div>
+      <section className="relative min-h-[85dvh] w-full pt-20 flex items-stretch">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+          {/* Text Content */}
+          <div className="flex-1 py-12 md:py-0 md:pr-12 z-10 animate-in fade-in slide-in-from-left-8 duration-1000">
+            <span className="text-primary tracking-[0.4em] text-xs md:text-sm uppercase mb-6 font-semibold block">
+              Colección Luxury Light
+            </span>
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-8 leading-none tracking-tight">
+              Sensualidad <br />
+              <span className="italic font-light opacity-80">& Elegancia</span>
+            </h1>
+            <p className="text-muted-foreground text-lg mb-12 max-w-lg font-light leading-relaxed">
+              Piezas exclusivas de lencería diseñadas para abrazar tu silueta y celebrar tu confianza todos los días.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/tienda">
+                <Button
+                  size="lg"
+                  className="rounded-none text-sm tracking-wider uppercase px-10 h-14 bg-primary text-primary-foreground hover:bg-primary/90 border-none group transition-all"
+                >
+                  Ver Colección
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+          </div>
 
-        <div className="relative z-10 text-center px-4 max-w-3xl mx-auto flex flex-col items-center animate-in fade-in slide-in-from-bottom-8 duration-1200">
-          <span className="text-foreground/90 tracking-[0.35em] text-sm md:text-base uppercase mb-6 font-medium block letter-spacing-widest">
-            Descubre tu poder interior
-          </span>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-8 leading-none tracking-tighter">
-            Sensualidad & <br />
-            <span className="text-primary italic font-light">Elegancia</span>
-          </h1>
-          <p className="text-foreground/70 text-base md:text-lg mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Piezas exclusivas diseñadas para abrazar tu silueta, celebrar tu
-            confianza y hacerte sentir extraordinaria todos los días.
-          </p>
-          <Link href="/tienda">
-            <Button
-              size="lg"
-              className="text-sm tracking-wider uppercase px-8 h-14 bg-primary text-primary-foreground hover:bg-primary/80 border-none group transition-all duration-300"
-            >
-              Explorar Colección
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-          </Link>
+          {/* Image Content (Framed) */}
+          <div className="flex-1 h-[500px] md:h-[700px] w-full relative animate-in fade-in zoom-in-95 duration-1200">
+             <div className="absolute inset-4 md:inset-12 border border-primary/20 -z-10 translate-x-4 translate-y-4"></div>
+             <div className="w-full h-full relative overflow-hidden bg-secondary">
+               <img
+                 src="/images/hero.png"
+                 alt="Alma Rosa Lingerie"
+                 className="w-full h-full object-cover object-center grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+               />
+               <div className="absolute inset-0 bg-primary/5"></div>
+             </div>
+          </div>
         </div>
       </section>
 

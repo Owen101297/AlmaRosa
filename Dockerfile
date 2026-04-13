@@ -1,22 +1,18 @@
-FROM node:20-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm@latest
 
-COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY lib ./lib
-COPY artifacts/karen-guerrero/package.json ./artifacts/karen-guerrero/package.json
-COPY artifacts/karen-guerrero/tsconfig.json ./artifacts/karen-guerrero/tsconfig.json
-COPY artifacts/karen-guerrero/vite.config.ts ./artifacts/karen-guerrero/vite.config.ts
-COPY artifacts/karen-guerrero/index.html ./artifacts/karen-guerrero/index.html
-COPY artifacts/karen-guerrero/public ./artifacts/karen-guerrero/public
-COPY artifacts/karen-guerrero/src ./artifacts/karen-guerrero/src
 
-RUN pnpm install --frozen-lockfile && \
-    cd artifacts/karen-guerrero && pnpm run build
+RUN pnpm install
 
-ENV NODE_ENV=production
+COPY artifacts/karen-guerrero ./artifacts/karen-guerrero
+
+RUN cd artifacts/karen-guerrero && pnpm run build
+
 EXPOSE 5173
 
-CMD ["node", "artifacts/karen-guerrero/node_modules/vite/bin/vite.js", "preview", "--host", "0.0.0.0", "--port", "5173"]
+CMD ["pnpm", "-r", "--filter", "@workspace/karen-guerrero", "run", "serve", "--host", "0.0.0.0"]

@@ -6,10 +6,16 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY lib ./lib
+COPY artifacts/api-server/package.json ./artifacts/api-server/package.json
+COPY artifacts/karen-guerrero/package.json ./artifacts/karen-guerrero/package.json
 
 RUN pnpm install --frozen-lockfile
 
-COPY artifacts/karen-guerrero ./artifacts/karen-guerrero
+COPY artifacts/karen-guerrero/index.html ./artifacts/karen-guerrero/index.html
+COPY artifacts/karen-guerrero/public ./artifacts/karen-guerrero/public
+COPY artifacts/karen-guerrero/src ./artifacts/karen-guerrero/src
+COPY artifacts/karen-guerrero/tsconfig.json ./artifacts/karen-guerrero/tsconfig.json
+COPY artifacts/karen-guerrero/vite.config.ts ./artifacts/karen-guerrero/vite.config.ts
 
 RUN cd artifacts/karen-guerrero && pnpm run build
 

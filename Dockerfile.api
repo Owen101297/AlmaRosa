@@ -1,0 +1,18 @@
+FROM node:20-slim
+
+WORKDIR /app
+
+RUN npm install -g pnpm@latest
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY lib ./lib
+
+RUN pnpm install
+
+COPY artifacts/api-server ./artifacts/api-server
+
+RUN cd artifacts/api-server && pnpm run build
+
+EXPOSE 5000
+
+CMD ["node", "artifacts/api-server/dist/index.mjs"]

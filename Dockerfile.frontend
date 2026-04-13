@@ -2,7 +2,7 @@ FROM node:20-slim
 
 WORKDIR /app
 
-RUN npm install -g pnpm@latest && mkdir -p artifacts/karen-guerrero
+RUN npm install -g pnpm@latest
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY lib ./lib
